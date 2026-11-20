@@ -1,13 +1,15 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GameSetup } from "./GameSetup";
 import { PuzzleMap } from "./PuzzleMap";
 import { RolePanel } from "./RolePanel";
 import { PrintPages } from "./PrintPages";
 import { getDevSample, DEV_ANSWER } from "../game/devSample";
+import { generatePuzzle, getRoleView } from "../game/engine";
+import { solvePuzzle } from "../game/solve";
 import type { GameSetupProps, RolePanelProps } from "../game/types";
 
 const { mapView, clueView } = getDevSample("D00001");
@@ -128,6 +130,47 @@ describe("乙-2：符号和正式文案", () => {
     expect(screen.getByRole("heading", { name: "本题答案" })).toBeDefined();
     expect(container.querySelectorAll("[data-print-role]")).toHaveLength(3);
     expect(container.querySelector('[data-print-role="answer"]')?.textContent).toContain("完成挑战后核对");
+  });
+});
+
+describe("乙-3：独立纸面角色与答案", () => {
+  it.each(["000000", "ABCDEF"])("%s 默认仅有完整 A/B 纸面信息，不泄露答案", (seed) => {
+    const puzzle = generatePuzzle({ version: "1", seed });
+    const map = getRoleView(puzzle, "a");
+    const clues = getRoleView(puzzle, "b");
+    const { container } = render(<PrintPages mapView={map} clueView={clues} />);
+    const a = screen.getByRole("article", { name: "A 探路员打印页" });
+    const b = screen.getByRole("article", { name: "B 解读员打印页" });
+    expect(screen.getAllByRole("article")).toHaveLength(2);
+    expect(a.textContent).toContain("不能穿越障碍，也不能重复经过格子");
+    expect(a.textContent).toContain(map.puzzleId);
+    expect(a.querySelectorAll("td")).toHaveLength(25);
+    expect(a.querySelectorAll("ol, .map-cell-selected")).toHaveLength(0);
+    expect(b.textContent).toContain(clues.puzzleId);
+    expect(within(b).getAllByRole("listitem")).toHaveLength(clues.stepCount);
+    expect(b.querySelectorAll("table, [aria-pressed], [role=status]")).toHaveLength(0);
+    expect(container.querySelectorAll("button, input")).toHaveLength(0);
+    expect(screen.getByText(/打印设置：A4/).classList.contains("screen-only")).toBe(true);
+    expect(container.querySelectorAll(".print-footer")).toHaveLength(2);
+  });
+
+  it.each(["000000", "ABCDEF"])("%s 显式答案保留完整坐标顺序，移除后不残留答案", (seed) => {
+    const puzzle = generatePuzzle({ version: "1", seed });
+    const map = getRoleView(puzzle, "a");
+    const clues = getRoleView(puzzle, "b");
+    const answer = solvePuzzle(puzzle, 2)[0];
+    const { container, rerender } = render(<PrintPages mapView={map} clueView={clues} answer={answer} />);
+    const page = screen.getByRole("article", { name: "本题答案打印页" });
+    expect(screen.getAllByRole("article")).toHaveLength(3);
+    expect(page.querySelectorAll(".map-cell-selected")).toHaveLength(map.stepCount + 1);
+    expect(within(page).getAllByRole("listitem").map((item) => item.textContent)).toEqual(
+      answer.map((coord) => `第 ${coord.row + 1} 行，第 ${coord.col + 1} 列`),
+    );
+    expect(page.textContent).toContain("双线框标出完整路径，起点为序号 1");
+    rerender(<PrintPages mapView={map} clueView={clues} />);
+    expect(screen.getAllByRole("article")).toHaveLength(2);
+    expect(container.querySelectorAll(".print-coordinates, .map-cell-selected")).toHaveLength(0);
+    expect(screen.queryByRole("article", { name: "本题答案打印页" })).toBeNull();
   });
 });
 
