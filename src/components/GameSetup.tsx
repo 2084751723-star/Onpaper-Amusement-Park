@@ -35,12 +35,14 @@ export function GameSetup({
   }
 
   return (
-    <section aria-label="角色选择" className="screen-only space-y-4 rounded-lg border border-border bg-background p-4 text-base text-foreground sm:p-6">
+    <section aria-label="角色选择" className="forest-setup screen-only space-y-4 rounded-lg border border-border bg-background p-4 text-base text-foreground sm:p-6">
+      <p className="forest-eyebrow">一张地图，两份视角</p>
       <h2 className="text-xl font-semibold">题号：{puzzleId}</h2>
       <p className="text-sm text-muted-foreground">选择自己的角色，将另一角色的链接复制给搭档。</p>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="forest-role-cards grid gap-4 sm:grid-cols-2">
         {(["a", "b"] as const).map((role) => (
-          <div key={role} className="min-w-0 space-y-3 rounded-lg border border-border p-4">
+          <div key={role} className={`forest-role-card forest-role-${role} min-w-0 space-y-3 rounded-lg border border-border p-4`}>
+            <span className="forest-role-letter" aria-hidden="true">{role.toUpperCase()}</span>
             <h3 className="text-lg font-semibold">{role === "a" ? "A 探路员" : "B 解读员"}</h3>
             <p className="text-sm text-muted-foreground">
               {role === "a" ? "你看地图，听搭档的线索选路。" : "你看有序线索，告诉搭档下一步怎么走。"}
@@ -76,7 +78,7 @@ export function GameSetup({
         </p>
       )}
       <div className="flex flex-wrap gap-3">
-        <Button type="button" variant="outline" className="min-h-11" onClick={onNewGame}>切换开发样例</Button>
+        <Button type="button" variant="outline" className="min-h-11" onClick={onNewGame}>切换题目</Button>
         <Button type="button" variant="outline" className="min-h-11" onClick={onPrint}>打印预览</Button>
       </div>
     </section>

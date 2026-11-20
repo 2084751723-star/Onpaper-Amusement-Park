@@ -6,6 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { GameSetup } from "./GameSetup";
 import { PuzzleMap } from "./PuzzleMap";
 import { RolePanel } from "./RolePanel";
+import { PrintPages } from "./PrintPages";
 import { getDevSample, DEV_ANSWER } from "../game/devSample";
 import type { GameSetupProps, RolePanelProps } from "../game/types";
 
@@ -91,17 +92,42 @@ describe("乙-1：角色入口与分享", () => {
     expect(screen.queryByText(/链接已复制/)).toBeNull();
   });
 
-  it("角色、新样例和打印操作只调用冻结的回调", async () => {
+  it("角色、切换题目和打印操作只调用冻结的回调", async () => {
     const user = userEvent.setup();
     render(<GameSetup {...setupProps} />);
     await user.click(screen.getByRole("button", { name: "我是 A 探路员" }));
     await user.click(screen.getByRole("button", { name: "我是 B 解读员" }));
-    await user.click(screen.getByRole("button", { name: "切换开发样例" }));
+    await user.click(screen.getByRole("button", { name: "切换题目" }));
     await user.click(screen.getByRole("button", { name: "打印预览" }));
     expect(setupProps.onSelectRole).toHaveBeenNthCalledWith(1, "a");
     expect(setupProps.onSelectRole).toHaveBeenNthCalledWith(2, "b");
     expect(setupProps.onNewGame).toHaveBeenCalledTimes(1);
     expect(setupProps.onPrint).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("乙-2：符号和正式文案", () => {
+  it("四个符号保留文字，装饰图形不增加辅助技术噪音", () => {
+    const { container } = render(<PuzzleMap view={mapView} path={[]} onSelectCell={vi.fn()} />);
+    for (const symbol of ["树叶", "月亮", "星星", "蘑菇"]) {
+      expect(screen.getAllByRole("button", { name: new RegExp(symbol) }).length).toBeGreaterThan(0);
+    }
+    expect(container.querySelectorAll("svg").length).toBeGreaterThan(0);
+    for (const icon of container.querySelectorAll("svg")) {
+      expect(icon.getAttribute("aria-hidden")).toBe("true");
+      expect(icon.getAttribute("focusable")).toBe("false");
+    }
+  });
+
+  it("打印文案不再声称样例，答案仍须明确传入才挂载", () => {
+    const { container, rerender } = render(<PrintPages mapView={mapView} clueView={clueView} />);
+    expect(container.textContent).not.toMatch(/开发样例|仅供排版|未通过正式求解验证/);
+    expect(container.querySelectorAll("[data-print-role]")).toHaveLength(2);
+    expect(container.querySelector('[data-print-role="answer"]')).toBeNull();
+    rerender(<PrintPages mapView={mapView} clueView={clueView} answer={DEV_ANSWER} />);
+    expect(screen.getByRole("heading", { name: "本题答案" })).toBeDefined();
+    expect(container.querySelectorAll("[data-print-role]")).toHaveLength(3);
+    expect(container.querySelector('[data-print-role="answer"]')?.textContent).toContain("完成挑战后核对");
   });
 });
 

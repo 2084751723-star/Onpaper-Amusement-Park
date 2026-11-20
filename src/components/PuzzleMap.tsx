@@ -1,6 +1,7 @@
 import { useRef, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import type { PuzzleMapProps, SymbolId } from "../game/types";
+import { GameSymbol } from "./GameSymbol";
 
 const symbolLabels: Record<SymbolId, string> = {
   leaf: "树叶",
@@ -33,7 +34,7 @@ export function PuzzleMap({ view, path, onSelectCell, printMode = false }: Puzzl
   }
 
   return (
-    <table ref={table} className="w-full table-fixed border-separate border-spacing-1 text-center text-foreground">
+    <table ref={table} className="forest-map w-full table-fixed border-separate border-spacing-1 text-center text-foreground">
       <caption className="pb-3 text-sm text-muted-foreground">
         5×5 地图 · 上北下南，左西右东；行、列从 1 开始
         {interactive && <span className="mt-2 block">方向键移动焦点（跳过障碍），Enter 或空格选格；也可用 Tab 逐格浏览。</span>}
@@ -56,12 +57,15 @@ export function PuzzleMap({ view, path, onSelectCell, printMode = false }: Puzzl
               ].filter(Boolean).join("，");
               const content = (
                 <>
-                  <span>{symbol}</span>
-                  {isStart && <span className="text-xs">起点</span>}
-                  {selected && <span className="text-xs">路径 {pathIndex + 1}{current ? " · 当前" : ""}</span>}
+                  {cell.kind === "symbol" ? <GameSymbol symbol={cell.symbol} /> : <span className="map-obstacle-mark" aria-hidden="true">×</span>}
+                  <span className="map-symbol-label">{symbol}</span>
+                  <span className="map-cell-meta text-xs">
+                    {isStart ? "起点" : selected ? `路径 ${pathIndex + 1}` : "\u00a0"}
+                    {current && <span className="map-current">当前</span>}
+                  </span>
                 </>
               );
-              const cellClassName = `flex h-auto min-h-20 w-full flex-col items-center justify-center gap-1 rounded-md border px-1 py-2 text-xs whitespace-normal sm:text-sm ${
+              const cellClassName = `map-cell ${selected ? "map-cell-selected" : ""} ${cell.kind === "obstacle" ? "map-cell-obstacle" : ""} flex h-auto min-h-20 w-full flex-col items-center justify-center gap-1 rounded-md border px-1 py-2 text-xs whitespace-normal sm:text-sm ${
                 selected
                   ? "border-primary bg-secondary text-foreground"
                   : "border-border bg-background text-foreground"
