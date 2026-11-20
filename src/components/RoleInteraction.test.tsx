@@ -7,12 +7,46 @@ import { GameSetup } from "./GameSetup";
 import { PuzzleMap } from "./PuzzleMap";
 import { RolePanel } from "./RolePanel";
 import { PrintPages } from "./PrintPages";
-import { getDevSample, DEV_ANSWER } from "../game/devSample";
 import { generatePuzzle, getRoleView } from "../game/engine";
 import { solvePuzzle } from "../game/solve";
-import type { GameSetupProps, RolePanelProps } from "../game/types";
+import type { Cell, ClueView, Coord, GameSetupProps, MapView, RolePanelProps, SymbolId } from "../game/types";
 
-const { mapView, clueView } = getDevSample("D00001");
+const fixtureSymbols: readonly (readonly (SymbolId | null)[])[] = [
+  [null, "moon", "star", null, "mushroom"],
+  ["star", "moon", "star", "mushroom", null],
+  ["leaf", "leaf", null, "leaf", "moon"],
+  ["mushroom", null, "star", "moon", "star"],
+  ["leaf", "moon", "mushroom", "leaf", null],
+];
+const mapView: MapView = {
+  puzzleId: "DEV-1-D00001",
+  grid: fixtureSymbols.map((row) =>
+    row.map((symbol): Cell => symbol === null ? { kind: "obstacle" } : { kind: "symbol", symbol }),
+  ),
+  start: { row: 2, col: 0 },
+  stepCount: 6,
+};
+const clueView: ClueView = {
+  puzzleId: mapView.puzzleId,
+  stepCount: 6,
+  clues: [
+    { symbol: "leaf", forbiddenDirection: "south" },
+    { symbol: "moon" },
+    { symbol: "star" },
+    { symbol: "mushroom" },
+    { symbol: "leaf" },
+    { symbol: "moon", forbiddenDirection: "east" },
+  ],
+};
+const fixturePath: readonly Coord[] = [
+  { row: 2, col: 0 },
+  { row: 2, col: 1 },
+  { row: 1, col: 1 },
+  { row: 1, col: 2 },
+  { row: 1, col: 3 },
+  { row: 2, col: 3 },
+  { row: 3, col: 3 },
+];
 const setupProps: GameSetupProps = {
   puzzleId: mapView.puzzleId,
   roleLinks: {
@@ -126,7 +160,7 @@ describe("乙-2：符号和正式文案", () => {
     expect(container.textContent).not.toMatch(/开发样例|仅供排版|未通过正式求解验证/);
     expect(container.querySelectorAll("[data-print-role]")).toHaveLength(2);
     expect(container.querySelector('[data-print-role="answer"]')).toBeNull();
-    rerender(<PrintPages mapView={mapView} clueView={clueView} answer={DEV_ANSWER} />);
+    rerender(<PrintPages mapView={mapView} clueView={clueView} answer={fixturePath} />);
     expect(screen.getByRole("heading", { name: "本题答案" })).toBeDefined();
     expect(container.querySelectorAll("[data-print-role]")).toHaveLength(3);
     expect(container.querySelector('[data-print-role="answer"]')?.textContent).toContain("完成挑战后核对");
@@ -209,7 +243,7 @@ describe("乙-1：地图键盘与投影", () => {
   it("障碍不可选，起点、当前落点和步序不只用颜色表达", async () => {
     const user = userEvent.setup();
     const onSelectCell = vi.fn();
-    render(<PuzzleMap view={mapView} path={DEV_ANSWER.slice(0, 3)} onSelectCell={onSelectCell} />);
+    render(<PuzzleMap view={mapView} path={fixturePath.slice(0, 3)} onSelectCell={onSelectCell} />);
     expect((cell(3, 3) as HTMLButtonElement).disabled).toBe(true);
     await user.click(cell(3, 3));
     expect(onSelectCell).not.toHaveBeenCalled();
@@ -247,7 +281,7 @@ describe("乙-1：角色信息与提交状态", () => {
 
   it.each(["idle", "demo", "error", "success"] as const)("A 的 %s 状态忠实显示父组件结果，不自行验题", (status) => {
     const props: RolePanelProps = {
-      role: "a", view: mapView, path: DEV_ANSWER,
+      role: "a", view: mapView, path: fixturePath,
       onSelectCell: vi.fn(), onUndo: vi.fn(), onClear: vi.fn(), onSubmit: vi.fn(),
       submission: { status, message: status === "idle" ? "" : `上层给出的${status}结果` },
     };

@@ -1,0 +1,546 @@
+{
+  "phase": "乙-5 local demo material verification",
+  "verifiedAtUtc": "2026-11-20T13:55:45.156536+00:00",
+  "runtimeBaseCommit": "0abf328ecefbaa2122d383a9180c1b0a74dbcd30",
+  "branch": "docs/yi-demo-pack",
+  "runtimeSourceChanges": [],
+  "changedTest": {
+    "file": "../../src/components/RoleInteraction.test.tsx",
+    "sha256Utf8Lf": "47d5c8a499a18d9b202828907cb6d3ea3bb7ecdcc035378ba2691c78367c7028",
+    "fixtureValuesEqualToPreviousSample": true,
+    "existingTestBodiesUnchangedExceptIdentifierAndLineEndings": true,
+    "externalDevSampleImportRemoved": true,
+    "originalJiaFileNotDeleted": true
+  },
+  "automatedVerification": {
+    "commands": [
+      "npm run test -- --run",
+      "npm run typecheck",
+      "npm run build",
+      "git diff --check"
+    ],
+    "allPassed": true,
+    "testsPassed": 721,
+    "testFilesPassed": 8,
+    "componentTestsRetained": 22,
+    "environmentNodeVersion": "v24.19.0",
+    "scope": "Local commands, not CI"
+  },
+  "browser": {
+    "method": "Separate temporary Edge profile, native CDP mouse/touch/key input, no product DOM mutation",
+    "viewports": [
+      320,
+      390,
+      1280
+    ],
+    "layouts": [
+      {
+        "label": "390 setup",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 map",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 success",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 clues",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 random new map",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 alternate map",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "390 alternate clues",
+        "width": 390,
+        "scrollWidth": 390,
+        "small": []
+      },
+      {
+        "label": "1280 setup",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "small": []
+      },
+      {
+        "label": "1280 map",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "1280 success",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "1280 clues",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "1280 random new map",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "1280 alternate map",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "1280 alternate clues",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "dark preference keeps legible paper theme",
+        "width": 1280,
+        "scrollWidth": 1265,
+        "small": []
+      },
+      {
+        "label": "320 setup",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 map",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 success",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 clues",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 random new map",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 alternate map",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      },
+      {
+        "label": "320 alternate clues",
+        "width": 320,
+        "scrollWidth": 320,
+        "small": []
+      }
+    ],
+    "checks": [
+      "390: real clipboard feedback: B 链接已复制，请发送给对应角色的玩家。",
+      "390: full navigation restores exact local path",
+      "390: real touch success, wrong path, invalid move, revisit, undo, clear, print 2/3/2, role separation",
+      "390: new seed resets path, alternate layout, invalid URL isolation",
+      "1280: real clipboard feedback: B 链接已复制，请发送给对应角色的玩家。",
+      "Native trusted arrow, Enter and Space activation passed",
+      "1280: full navigation restores exact local path",
+      "1280: real mouse success, wrong path, invalid move, revisit, undo, clear, print 2/3/2, role separation",
+      "1280: new seed resets path, alternate layout, invalid URL isolation",
+      "320: real clipboard feedback: B 链接已复制，请发送给对应角色的玩家。",
+      "320: full navigation restores exact local path",
+      "320: real touch success, wrong path, invalid move, revisit, undo, clear, print 2/3/2, role separation",
+      "320: new seed resets path, alternate layout, invalid URL isolation"
+    ],
+    "errors": [],
+    "passed": true,
+    "pdfPageCountIsNotInferredFromDOM": true
+  },
+  "images": [
+    {
+      "file": "1280-setup.png",
+      "bytes": 82474,
+      "sha256": "11cb99490c133c053ef25cc8d414debe16a2570d8059c059979ea8b4e52f95b4",
+      "dimensions": [
+        1280,
+        900
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:50.510142+00:00",
+      "method": "Edge native CDP screenshot after real input events; lossless PNG optimization only",
+      "sourceSha256": "1408c91f791c1cf471cf1c9872d0570cd46d0318090381acdf3bd7500ef87f3f",
+      "origin": "http://127.0.0.1:5181",
+      "seed": "000000",
+      "version": "1"
+    },
+    {
+      "file": "1280-map.png",
+      "bytes": 99576,
+      "sha256": "b6be00970fcc719b59e8912a15f7afda77dd887433057bc82c505334b322a57b",
+      "dimensions": [
+        1280,
+        1300
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:50.614067+00:00",
+      "method": "Edge native CDP screenshot after real input events; lossless PNG optimization only",
+      "sourceSha256": "9905ebf22e6fba6fd45fcfc87b331b59ca68b6cd6229fb8be2e06dfb8be67eba",
+      "origin": "http://127.0.0.1:5181",
+      "seed": "000000",
+      "version": "1"
+    },
+    {
+      "file": "1280-clues.png",
+      "bytes": 72135,
+      "sha256": "fb8fb99f01112b832c9950eb2565997bfc8e4448348445cf1678535065968cb4",
+      "dimensions": [
+        1280,
+        1038
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:51.681612+00:00",
+      "method": "Edge native CDP screenshot after real input events; lossless PNG optimization only",
+      "sourceSha256": "0f9f74eba7d99830323cbcfa888f1123fa1e73f8adfada8af5a7fa9dadb9cef5",
+      "origin": "http://127.0.0.1:5181",
+      "seed": "000000",
+      "version": "1"
+    },
+    {
+      "file": "390-success.png",
+      "bytes": 93610,
+      "sha256": "43efa3c7070b26841c4a61ecf2270560a767d60f847bca7b7773a07431fdc84d",
+      "dimensions": [
+        390,
+        1320
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:49.005476+00:00",
+      "method": "Edge native CDP screenshot after real input events; lossless PNG optimization only",
+      "sourceSha256": "7f8a0945bf1c374869c0cb101f5d210d21fab26d1c7dca39deb42a2fe1b79c1e",
+      "origin": "http://127.0.0.1:5181",
+      "seed": "000000",
+      "version": "1"
+    },
+    {
+      "file": "1280-print.png",
+      "bytes": 166894,
+      "sha256": "77a2eef07bf9e2966c16aa2725f40d2a5236d871d66333b221b65a4898441851",
+      "dimensions": [
+        1280,
+        2307
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:51.202070+00:00",
+      "method": "Edge native CDP screenshot after real input events; lossless PNG optimization only",
+      "sourceSha256": "e9cce190f3967e778290bc84cf6e0b34383e6b8d674cadcf0cddb744a7306752",
+      "origin": "http://127.0.0.1:5181",
+      "seed": "000000",
+      "version": "1"
+    },
+    {
+      "file": "qoder-process-cropped.png",
+      "bytes": 153140,
+      "sha256": "3d5d878f9f53062fbebc1f813fe58bf8d5c7afe761444284dca81dd1c563f4be",
+      "dimensions": [
+        1753,
+        914
+      ],
+      "sourceCapturedAtUtc": "2026-11-20T13:51:54.731537+00:00",
+      "method": "Windows PrintWindow on Qoder application only, then crop",
+      "sourceSha256": "01dc37949c3ebc43a0308fc7259111c718c7361ca0b6c2cf4cfd614857a419f8",
+      "cropOriginalPixels": [
+        390,
+        78,
+        2143,
+        992
+      ],
+      "privacy": "Left/right sidebars and lower account/model/local-path regions excluded. No generative edits or compositing."
+    }
+  ],
+  "pdfRecheck": [
+    {
+      "file": "../print/000000-roles.pdf",
+      "sha256": "51f943cf06e606a71c08d174720dad8e6ff16097d27670d50172a4d68ebd8f9b",
+      "bytes": 151944,
+      "pages": 2,
+      "pageDimensionsPt": [
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ]
+      ],
+      "unchangedFromAcceptedBase": true
+    },
+    {
+      "file": "../print/000000-answer.pdf",
+      "sha256": "9a3223b939db025edf491fba6b4b43d3643df0564aaa395a73aa9eb1eeccd7a5",
+      "bytes": 215928,
+      "pages": 3,
+      "pageDimensionsPt": [
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ]
+      ],
+      "unchangedFromAcceptedBase": true
+    },
+    {
+      "file": "../print/ABCDEF-roles.pdf",
+      "sha256": "f430b3697804e3e589e8718e789f7958268d011269abc2ebb81803979f30f524",
+      "bytes": 160540,
+      "pages": 2,
+      "pageDimensionsPt": [
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ]
+      ],
+      "unchangedFromAcceptedBase": true
+    },
+    {
+      "file": "../print/ABCDEF-answer.pdf",
+      "sha256": "f5e2ba4fca00294413f4d35ceba81614456fed29296a0878e43df0a59170979e",
+      "bytes": 234144,
+      "pages": 3,
+      "pageDimensionsPt": [
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ],
+        [
+          594.9599609375,
+          841.9199829101562
+        ]
+      ],
+      "unchangedFromAcceptedBase": true
+    }
+  ],
+  "historicalPrintEvidence": {
+    "file": "../print/verification.json",
+    "authorHead": "63b790484f34db3b16f61da82fb470b001dc8a3a",
+    "pdfs": 38,
+    "pages": 95,
+    "coverage": "000000-00000F: two templates x eight geometries; ABCDEF: one extra permutation example. Additional background-on and answer-off reexports for two sample seeds.",
+    "all384VariantPDFsTested": false,
+    "manifestLeftUnchanged": true
+  },
+  "documents": [
+    {
+      "file": "../../docs/演示提纲.md",
+      "sha256Utf8Lf": "ea345fab6d1df80cdadcf856df7b2afdf7929126a3887aaa2f5ea2cf8ad42034"
+    },
+    {
+      "file": "../../docs/作品介绍草稿.md",
+      "sha256Utf8Lf": "38c46adb902d10844b66f617793e3d0ae68158c2a32fc25b25bf4e515f9f6698"
+    }
+  ],
+  "documentLinks": [
+    {
+      "document": "演示提纲.md",
+      "target": "http://127.0.0.1:5181/"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "http://127.0.0.1:5181/?v=1&seed=000000&role=a"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "http://127.0.0.1:5181/?v=1&seed=000000&role=b"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/1280-setup.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/1280-map.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/1280-clues.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/390-success.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/1280-print.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/qoder-process-cropped.png"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/print/000000-roles.pdf"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/print/000000-answer.pdf"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/print/ABCDEF-roles.pdf"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/print/ABCDEF-answer.pdf"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/demo/verification.json"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../deliverables/print/verification.json"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "开发协作计划.md#1-已确认的信息与首版边界"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../src/App.tsx"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../src/components/PuzzleMap.tsx"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../src/components/RolePanel.tsx"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../src/components/PrintPages.tsx"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "../src/game/variants.integration.test.ts"
+    },
+    {
+      "document": "演示提纲.md",
+      "target": "https://github.com/2084751723-star/Onpaper-Amusement-Park/pull/2#issuecomment-7041096018"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/1280-setup.png"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/1280-map.png"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/1280-clues.png"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/390-success.png"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/qoder-process-cropped.png"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "演示提纲.md"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/print/000000-roles.pdf"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/print/000000-answer.pdf"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/print/ABCDEF-roles.pdf"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/print/ABCDEF-answer.pdf"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "开发协作计划.md"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../src/components/RoleInteraction.test.tsx"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../src/game/variants.integration.test.ts"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../src/lib/session.test.ts"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/demo/verification.json"
+    },
+    {
+      "document": "作品介绍草稿.md",
+      "target": "../deliverables/print/verification.json"
+    }
+  ],
+  "limitations": [
+    "No public site verification in this local material record",
+    "No physical phone or printer acceptance",
+    "No other browser-engine acceptance",
+    "No two-person usability or fun study",
+    "110 seconds is the proposed presentation timeline, not measured human narration",
+    "No video or forum post created",
+    "Role-view separation is not anti-cheat security"
+  ],
+  "passed": true
+}
