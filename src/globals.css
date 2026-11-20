@@ -94,42 +94,6 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --card: #171717;
-    --card-foreground: #ededed;
-    --popover: #171717;
-    --popover-foreground: #ededed;
-    --primary: #ededed;
-    --primary-foreground: #171717;
-    --secondary: #262626;
-    --secondary-foreground: #ededed;
-    --muted: #262626;
-    --muted-foreground: #a1a1a1;
-    --accent: #262626;
-    --accent-foreground: #ededed;
-    --destructive: #ff6467;
-    --border: #ffffff1a;
-    --input: #ffffff26;
-    --ring: #737373;
-    --chart-1: #8e51ff;
-    --chart-2: #00bc7d;
-    --chart-3: #fe9a00;
-    --chart-4: #ad46ff;
-    --chart-5: #ff2056;
-    --sidebar: #171717;
-    --sidebar-foreground: #ededed;
-    --sidebar-primary: #8e51ff;
-    --sidebar-primary-foreground: #ededed;
-    --sidebar-accent: #262626;
-    --sidebar-accent-foreground: #ededed;
-    --sidebar-border: #ffffff1a;
-    --sidebar-ring: #737373;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -138,31 +102,20 @@ body {
 
 /* 设计参数使用工程原有样式管理，工作台只临时覆盖变量。 */
 :root {
-  --site-bg: #ffffff;
-  --site-fg: #171717;
-  --site-accent: #171717;
-  --site-on-accent: #fafafa;
-  --site-surface: #f5f5f5;
-  --site-muted: #737373;
-  --site-border: #e5e5e5;
-  --site-font: Arial, Helvetica, sans-serif;
-  --site-radius: 10px;
+  color-scheme: light;
+  --site-bg: #f5f1e7;
+  --site-fg: #253c32;
+  --site-accent: #315c46;
+  --site-on-accent: #fffdf5;
+  --site-surface: #e9ede1;
+  --site-muted: #5b665b;
+  --site-border: #bec6b4;
+  --site-font: "Segoe UI", "Microsoft YaHei", sans-serif;
+  --site-radius: 16px;
   --site-space: 1;
   --site-type: 1;
   --site-motion: 1;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --site-bg: #0a0a0a;
-    --site-fg: #ededed;
-    --site-accent: #ededed;
-    --site-on-accent: #171717;
-    --site-surface: #262626;
-    --site-muted: #a1a1a1;
-    --site-border: #ffffff1a;
-  }
-}
-
 :root {
   --background: var(--site-bg);
   --foreground: var(--site-fg);
@@ -175,6 +128,9 @@ body {
   --accent: var(--site-surface);
   --accent-foreground: var(--site-fg);
   --border: var(--site-border);
+  --input: var(--site-border);
+  --ring: #95612c;
+  --destructive: #a13424;
   --radius: var(--site-radius);
 }
 @theme inline {
@@ -198,5 +154,273 @@ body {
   button, a { transition-duration: calc(150ms * var(--site-motion)); }
   @media (prefers-reduced-motion: reduce) {
     button, a { transition-duration: 0ms; }
+  }
+}
+
+.game-symbol {
+  flex: none;
+}
+
+.forest-clue-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.map-obstacle-mark {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+@media screen {
+  body {
+    background-image: radial-gradient(#315c4610 0.7px, transparent 0.7px);
+    background-size: 7px 7px;
+    line-height: 1.65;
+  }
+
+  #root > main {
+    max-width: 960px;
+    padding: 40px 28px 56px;
+  }
+
+  #root > main > header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #root > main > header h1 {
+    font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+    font-size: clamp(26px, 4vw, 38px);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+
+  #root > main > header > p:first-of-type {
+    border: 0;
+    border-left: 3px solid var(--primary);
+    border-radius: 0;
+    background: transparent;
+    padding: 4px 0 4px 16px;
+  }
+
+  #root > main button,
+  #root > main input[type="text"] {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  #root > main :is(button, input):focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  #root > main input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+  }
+
+  .forest-setup,
+  .forest-panel {
+    background: #fffdf6;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 4px 5px 0 #dce2d3;
+  }
+
+  .forest-panel {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .forest-eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+
+  .forest-role-cards {
+    padding-block: 12px;
+  }
+
+  .forest-role-card {
+    padding: 24px;
+    background: #edf1e5;
+    border-top: 3px solid #315c46;
+  }
+
+  .forest-role-letter {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font: 28px Georgia, serif;
+    color: #315c46;
+  }
+
+  .forest-role-b {
+    background: #f5ebdf;
+    border-color: #c8b49f;
+    border-top-color: #895735;
+  }
+
+  .forest-role-b .forest-role-letter {
+    color: #895735;
+  }
+
+  .forest-role-card input {
+    background: #fffdf6;
+    font-size: 13px;
+    font-family: var(--font-mono);
+  }
+
+  .forest-role-card button:first-child {
+    flex: 1;
+  }
+
+  .forest-progress {
+    width: fit-content;
+    padding: 6px 12px;
+    background: var(--secondary);
+    border-radius: 6px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .forest-map {
+    border-spacing: 5px;
+  }
+
+  .forest-map caption {
+    text-align: left;
+    line-height: 1.7;
+    font-size: 12px;
+  }
+
+  .forest-map .map-cell {
+    min-height: 104px;
+    padding: 10px 2px 6px;
+    gap: 4px;
+    border-radius: 9px;
+    background: #faf8ef;
+    border-color: #bbc7b3;
+    color: var(--foreground);
+    box-shadow: 0 2px 0 #d4ddc9;
+  }
+
+  .forest-map .game-symbol {
+    width: 24px;
+    height: 24px;
+  }
+
+  .map-current {
+    display: block;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .map-symbol-label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .map-cell-meta {
+    display: block;
+    min-height: 28px;
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .forest-map .map-cell-selected {
+    border: 2px solid #315c46;
+    background: #e4edda;
+    box-shadow: none;
+  }
+
+  .forest-map .map-cell[aria-current="step"] {
+    border-style: double;
+    border-width: 3px;
+    background: #d5e4c7;
+  }
+
+  .forest-map .map-cell-obstacle {
+    opacity: 1;
+    color: #626657;
+    background: repeating-linear-gradient(135deg, #ebece1 0 7px, #e0e3d6 7px 8px);
+    border-style: dashed;
+    box-shadow: none;
+  }
+
+  .forest-map button.map-cell:not(:disabled):hover {
+    border-color: #315c46;
+    background-color: #e4edda;
+  }
+
+  .forest-actions > button:last-child {
+    margin-left: auto;
+    min-width: 120px;
+  }
+
+  .forest-panel [role="status"]:not(:empty) {
+    padding: 12px 16px;
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .forest-clues .forest-eyebrow {
+    color: #895735;
+  }
+
+  .forest-clue-list {
+    padding-left: 32px;
+  }
+
+  .forest-clue-list > li {
+    padding: 16px;
+    border: 1px solid #d2c5b3;
+    border-radius: 10px;
+    background: #f7f1e6;
+  }
+
+  .forest-clue-list > li::marker {
+    font: bold 18px Georgia, serif;
+    color: #895735;
+  }
+
+  .forest-clue-content {
+    column-gap: 12px;
+  }
+
+  .forest-direction {
+    margin-left: auto;
+    padding: 3px 8px;
+    border: 1px dashed #966240;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #764726;
+  }
+
+  @media (max-width: 600px) {
+    #root > main { padding: 24px 16px 40px; }
+    .forest-setup, .forest-panel { padding: 16px; }
+    .forest-role-card { padding: 20px; }
+  }
+
+  @media (max-width: 420px) {
+    #root > main { padding: 20px 12px 32px; }
+    .forest-setup, .forest-panel { padding: 12px; }
+    .forest-map { border-spacing: 3px; }
+    .forest-map .map-cell { min-height: 104px; }
+    .forest-actions { gap: 8px; }
+    .forest-actions > button:last-child { min-width: 104px; }
+    .forest-clue-list > li { padding: 12px; }
+    .forest-direction { flex-basis: 100%; margin-left: 36px; }
   }
 }
