@@ -56,7 +56,7 @@ function PrintPreview({ puzzle, mapView, clueView }: {
     <section className="space-y-6" aria-label="打印预览">
       <div className="screen-only space-y-4">
         <h2 className="text-xl font-semibold">打印预览</h2>
-        <p>默认仅 A / B 两页；答案页由独立求解器验证的唯一解生成，勾选时才会挂载。A4 / PDF 正式验收由后续打印任务完成。</p>
+        <p>默认仅 A / B 两页；答案页由独立求解器验证的唯一解生成，勾选时才会挂载。已按 A4 纵向真实导出验证两页/三页分页与黑白可读（实体打印未验收）。</p>
         <label className="flex min-h-11 items-center gap-3">
           <input type="checkbox" checked={includeAnswer} onChange={(event) => setIncludeAnswer(event.target.checked)} />
           附上本题答案
