@@ -1,0 +1,63 @@
+@page {
+  size: A4;
+  margin: 16mm;
+}
+
+.print-pages {
+  display: grid;
+  justify-items: center;
+  gap: calc(1.5rem * var(--site-space, 1));
+}
+
+.print-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 210mm;
+  min-width: 0;
+  padding: calc(1rem * var(--site-space, 1));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: calc(1rem * var(--site-type, 1));
+}
+
+.print-page > * + * {
+  margin-top: calc(1rem * var(--site-space, 1));
+}
+
+@media print {
+  .screen-only {
+    display: none !important;
+  }
+
+  .print-pages {
+    display: block;
+  }
+
+  .print-page {
+    --background: white;
+    --foreground: black;
+    --primary: black;
+    --secondary: white;
+    --muted-foreground: black;
+    --border: black;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .print-page tr,
+  .print-page li {
+    break-inside: avoid;
+  }
+}
