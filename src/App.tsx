@@ -5,39 +5,41 @@ import { RolePanel } from "./components/RolePanel";
 import { PrintPages } from "./components/PrintPages";
 import { generatePuzzle, getRoleView, validatePath } from "./game/engine";
 import { solvePuzzle } from "./game/solve";
-import type { ClueView, Coord, MapView, Puzzle, Role, SubmissionState } from "./game/types";
+import {
+  createPrintLink,
+  createRoleLink,
+  createSession,
+  loadProgress,
+  parseSession,
+  saveProgress,
+} from "./lib/session";
+import type { SessionRoute } from "./lib/session";
+import type { ClueView, Coord, MapView, Puzzle, PuzzleSession, Role, SubmissionState } from "./game/types";
 
 type Page = "setup" | Role | "print";
-type Route = { seed: string; page: Page };
-const DEFAULT_SEED = "000000";
-const ALTERNATE_SEED = "ABCDEF";
+const DEFAULT_SESSION: PuzzleSession = { version: "1", seed: "000000" };
 const idleSubmission: SubmissionState = { status: "idle", message: "" };
 
-function readRoute(search: string): Route | string {
-  const params = new URLSearchParams(search);
-  if (params.size === 0) return { seed: DEFAULT_SEED, page: "setup" };
-  const allowed = ["v", "seed", "role", "mode"];
-  for (const key of params.keys()) {
-    if (!allowed.includes(key) || params.getAll(key).length !== 1) return "链接包含未知或重复参数。";
-  }
-  if (params.get("v") !== "1") return "不支持此版本，请检查链接。";
-  const seed = params.get("seed")?.toUpperCase();
-  if (!seed || !/^[0-9A-F]{6}$/.test(seed)) return "种子必须是六位十六进制。";
-  const role = params.get("role");
-  const mode = params.get("mode");
-  if (role !== null && role !== "a" && role !== "b") return "角色只能是 a 或 b。";
-  if (mode !== null && mode !== "print") return "不支持此页面模式。";
-  if (mode && role) return "打印模式不能同时指定角色。";
-  return { seed, page: mode === "print" ? "print" : role ?? "setup" };
+function routePage(route: SessionRoute): Page {
+  if (route.mode === "print") return "print";
+  return route.mode === "role" ? route.role : "setup";
 }
 
-function pageUrl(seed: string, page: Page): URL {
-  const url = new URL(window.location.pathname, window.location.origin);
-  url.searchParams.set("v", "1");
-  url.searchParams.set("seed", seed);
-  if (page === "a" || page === "b") url.searchParams.set("role", page);
-  if (page === "print") url.searchParams.set("mode", "print");
-  return url;
+function pageUrl(session: PuzzleSession, page: Page): string {
+  if (page === "a" || page === "b") return createRoleLink(window.location.href, session, page);
+  if (page === "print") return createPrintLink(window.location.href, session);
+  const url = new URL(createPrintLink(window.location.href, session));
+  url.searchParams.delete("mode");
+  return url.href;
+}
+
+function restorePath(session: PuzzleSession, mapView: MapView): readonly Coord[] {
+  const saved = loadProgress(session, "a");
+  if (!saved) return [mapView.start];
+  const usable = saved[0].row === mapView.start.row && saved[0].col === mapView.start.col
+    && saved.length <= mapView.stepCount + 1
+    && saved.every((coord) => mapView.grid[coord.row][coord.col].kind !== "obstacle");
+  return usable ? saved : [mapView.start];
 }
 
 function PrintPreview({ puzzle, mapView, clueView }: {
@@ -66,15 +68,18 @@ function PrintPreview({ puzzle, mapView, clueView }: {
   );
 }
 
-function PuzzleSession({ route, navigate }: {
-  route: Route;
-  navigate: (seed: string, page: Page) => void;
+function PuzzleSession({ session, page, navigate }: {
+  session: PuzzleSession;
+  page: Page;
+  navigate: (target: PuzzleSession, page: Page) => void;
 }) {
-  const puzzle = useMemo(() => generatePuzzle({ version: "1", seed: route.seed }), [route.seed]);
+  const puzzle = useMemo(() => generatePuzzle(session), [session.seed]);
   const mapView = useMemo(() => getRoleView(puzzle, "a"), [puzzle]);
   const clueView = useMemo(() => getRoleView(puzzle, "b"), [puzzle]);
-  const [path, setPath] = useState<readonly Coord[]>([mapView.start]);
+  const [path, setPath] = useState<readonly Coord[]>(() => restorePath(session, mapView));
   const [submission, setSubmission] = useState<SubmissionState>(idleSubmission);
+
+  useEffect(() => { saveProgress(session, "a", path); }, [path, session.seed]);
 
   function selectCell(coord: Coord) {
     const cell = mapView.grid[coord.row][coord.col];
@@ -101,22 +106,25 @@ function PuzzleSession({ route, navigate }: {
 
   return (
     <>
-      {route.page !== "setup" && (
+      {page !== "setup" && (
         <nav className="screen-only flex flex-wrap gap-3" aria-label="页面导航">
-          <Button variant="outline" onClick={() => navigate(route.seed, "setup")}>返回角色入口</Button>
-          {route.page !== "print" && <Button variant="outline" onClick={() => navigate(route.seed, "print")}>打印预览</Button>}
+          <Button variant="outline" onClick={() => navigate(session, "setup")}>返回角色入口</Button>
+          {page !== "print" && <Button variant="outline" onClick={() => navigate(session, "print")}>打印预览</Button>}
         </nav>
       )}
-      {route.page === "setup" && (
+      {page === "setup" && (
         <GameSetup
           puzzleId={mapView.puzzleId}
-          roleLinks={{ a: pageUrl(route.seed, "a").href, b: pageUrl(route.seed, "b").href }}
-          onNewGame={() => navigate(route.seed === DEFAULT_SEED ? ALTERNATE_SEED : DEFAULT_SEED, "setup")}
-          onSelectRole={(role) => navigate(route.seed, role)}
-          onPrint={() => navigate(route.seed, "print")}
+          roleLinks={{
+            a: createRoleLink(window.location.href, session, "a"),
+            b: createRoleLink(window.location.href, session, "b"),
+          }}
+          onNewGame={() => navigate(createSession(), "setup")}
+          onSelectRole={(role) => navigate(session, role)}
+          onPrint={() => navigate(session, "print")}
         />
       )}
-      {route.page === "a" && (
+      {page === "a" && (
         <div className="screen-only">
           <RolePanel
             role="a"
@@ -130,15 +138,22 @@ function PuzzleSession({ route, navigate }: {
           />
         </div>
       )}
-      {route.page === "b" && <div className="screen-only"><RolePanel role="b" view={clueView} /></div>}
-      {route.page === "print" && <PrintPreview puzzle={puzzle} mapView={mapView} clueView={clueView} />}
+      {page === "b" && <div className="screen-only"><RolePanel role="b" view={clueView} /></div>}
+      {page === "print" && <PrintPreview puzzle={puzzle} mapView={mapView} clueView={clueView} />}
     </>
   );
 }
 
 export default function App() {
   const [search, setSearch] = useState(() => window.location.search);
-  const route = readRoute(search);
+  let route: SessionRoute | null = null;
+  let routeError: string | null = null;
+  try {
+    route = parseSession(search);
+  } catch (error) {
+    routeError = error instanceof Error ? error.message : "链接无效。";
+  }
+  const session = route?.session ?? DEFAULT_SESSION;
 
   useEffect(() => {
     const onPopState = () => setSearch(window.location.search);
@@ -147,17 +162,17 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const parsed = readRoute(search);
-    const seed = new URLSearchParams(search).get("seed");
-    if (typeof parsed !== "string" && seed && seed !== parsed.seed) {
-      window.history.replaceState({}, "", pageUrl(parsed.seed, parsed.page));
+    if (!route) return;
+    const rawSeed = new URLSearchParams(search).get("seed");
+    if (rawSeed && rawSeed !== session.seed) {
+      window.history.replaceState({}, "", pageUrl(session, routePage(route)));
     }
   }, [search]);
 
-  function navigate(seed: string, page: Page) {
-    const url = pageUrl(seed, page);
-    window.history.pushState({}, "", url);
-    setSearch(url.search);
+  function navigate(target: PuzzleSession, targetPage: Page) {
+    const href = pageUrl(target, targetPage);
+    window.history.pushState({}, "", href);
+    setSearch(new URL(href).search);
   }
 
   return (
@@ -167,15 +182,15 @@ export default function App() {
         <p className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
           正式谜题已接入：A 探路员看地图、B 解读员看有序符号线索；打开同一题号的不同角色链接，通话协作找到宝藏。
         </p>
-        <p className="text-sm text-muted-foreground">两人通过现有通话交流，本页没有实时房间或同步进度。当前版本各题号复用同一道已验证谜题，布局变体随后续版本接入；刷新会重置本端路径。</p>
+        <p className="text-sm text-muted-foreground">两人通过现有通话交流，本页没有实时房间或同步进度。不同题号对应确定性布局变体（均为已验证谜题）；A 端已走路径自动保存在本设备，刷新或重开同一题号可恢复。</p>
       </header>
-      {typeof route === "string" ? (
+      {routeError ? (
         <section className="screen-only space-y-4">
-          <p role="alert">链接无效：{route}</p>
-          <Button onClick={() => navigate(DEFAULT_SEED, "setup")}>打开题目入口</Button>
+          <p role="alert">链接无效：{routeError}</p>
+          <Button onClick={() => navigate(DEFAULT_SESSION, "setup")}>打开题目入口</Button>
         </section>
-      ) : (
-        <PuzzleSession key={route.seed} route={route} navigate={navigate} />
+      ) : route && (
+        <PuzzleSession key={session.seed} session={session} page={routePage(route)} navigate={navigate} />
       )}
     </main>
   );

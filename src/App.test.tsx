@@ -5,11 +5,15 @@ import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 import { generatePuzzle, getRoleView } from "./game/engine";
+import { saveProgress } from "./lib/session";
 
-afterEach(cleanup);
+afterEach(() => {
+  window.localStorage.clear();
+  cleanup();
+});
 
 const cellName = /第\s*\d+\s*行\s*[，,]\s*第\s*\d+\s*列/;
-// 甲-1 基线模板唯一解（任意合法种子同一布局），坐标零起始、含起点。
+// 种子 000000 基线模板唯一解（坐标零起始、含起点；变体按种子选布局）。
 const solutionPath = [
   [2, 0], [1, 0], [0, 0], [0, 1], [1, 1], [2, 1], [3, 1],
 ] as const;
@@ -430,7 +434,7 @@ describe("甲-1I App：正式引擎接线与角色隔离", () => {
     expect(screen.getAllByRole("button", { name: cellName }).length).toBeGreaterThan(0);
   });
 
-  it("切换新题：题号与角色链接更新、A 路径重置为起点且状态清空", async () => {
+  it("切换新题：随机新种子、题号与角色链接更新、A 路径重置为起点且状态清空", async () => {
     window.history.replaceState({}, "", "/");
     const user = userEvent.setup();
     render(<App />);
@@ -445,19 +449,67 @@ describe("甲-1I App：正式引擎接线与角色隔离", () => {
     await user.click(screen.getByRole("button", { name: "返回角色入口" }));
     await user.click(screen.getByRole("button", { name: /切换/ }));
 
-    expectRoleLink(roleLink("a"), "a", "ABCDEF");
-    expectRoleLink(roleLink("b"), "b", "ABCDEF");
-    expect(screen.getAllByText(/1-ABCDEF/).length).toBeGreaterThan(0);
+    // 甲-3 接线后换题由会话模块 crypto 生成新种子，不再固定往返 000000/ABCDEF。
+    const nextSeed = new URL(roleLink("a")).searchParams.get("seed") ?? "";
+    expect(nextSeed).not.toBe(DEFAULT_SEED);
+    expect(nextSeed).toMatch(/^[0-9A-F]{6}$/);
+    expectRoleLink(roleLink("a"), "a", nextSeed);
+    expectRoleLink(roleLink("b"), "b", nextSeed);
+    expect(screen.getAllByText(new RegExp(`1-${nextSeed}`)).length).toBeGreaterThan(0);
     expect(screen.queryAllByText(new RegExp(`1-${DEFAULT_SEED}`))).toHaveLength(0);
     expectFormalNotice();
     expect(screen.queryByText(/已生成正式题|正式题目生成成功/)).toBeNull();
 
     await user.click(screen.getByRole("button", { name: "我是 A 探路员" }));
-    expectRoleLink(new URL(window.location.href), "a", "ABCDEF");
+    expectRoleLink(new URL(window.location.href), "a", nextSeed);
     // 甲-2 变体引擎按种子选择模板，起点随题号变化，从引擎取期望起点。
-    const altStart = getRoleView(generatePuzzle({ version: "1", seed: "ABCDEF" }), "a").start;
+    const altStart = getRoleView(generatePuzzle({ version: "1", seed: nextSeed }), "a").start;
     expect(selectedCells()).toEqual([cell(altStart.row, altStart.col)]);
     expect(screen.getByRole("status").textContent?.trim()).toBe("");
     expect(screen.queryByText(/正式验题待接入/)).toBeNull();
+  });
+
+  it("A 已走路径写入本端存档，重新挂载（模拟刷新）后恢复且状态为空", async () => {
+    window.history.replaceState({}, "", `/?v=1&seed=${DEFAULT_SEED}&role=a`);
+    const user = userEvent.setup();
+    const first = render(<App />);
+
+    await choosePath(user, solutionPath.slice(0, 3));
+    expect(selectedCells()).toHaveLength(3);
+    const walked = selectedCells().map((element) => element.getAttribute("aria-label"));
+    first.unmount();
+
+    render(<App />);
+    expect(selectedCells().map((element) => element.getAttribute("aria-label"))).toEqual(walked);
+    expect(screen.getByRole("status").textContent?.trim()).toBe("");
+  });
+
+  it("存档损坏时忽略并回落到仅起点", () => {
+    window.history.replaceState({}, "", `/?v=1&seed=${DEFAULT_SEED}&role=a`);
+    // 存档键格式由会话模块锁定：版本:种子:角色。
+    window.localStorage.setItem("onpaper:progress:1:000000:a", "not-json");
+    render(<App />);
+
+    expect(selectedCells()).toEqual([cell(2, 0)]);
+  });
+
+  it("恢复的存档与当前题起点不符时忽略并回到起点", () => {
+    window.history.replaceState({}, "", `/?v=1&seed=${DEFAULT_SEED}&role=a`);
+    saveProgress({ version: "1", seed: DEFAULT_SEED }, "a", [{ row: 0, col: 0 }]);
+    render(<App />);
+
+    expect(selectedCells()).toEqual([cell(2, 0)]);
+  });
+
+  it("B 页不读取或展示 A 的已走路径", () => {
+    window.history.replaceState({}, "", `/?v=1&seed=${DEFAULT_SEED}&role=b`);
+    saveProgress({ version: "1", seed: DEFAULT_SEED }, "a", [
+      { row: 2, col: 0 }, { row: 1, col: 0 }, { row: 0, col: 0 },
+    ]);
+    render(<App />);
+
+    expect(screen.getAllByRole("listitem")).toHaveLength(6);
+    expect(screen.queryAllByRole("button", { name: cellName })).toHaveLength(0);
+    expect(screen.queryByRole("status")).toBeNull();
   });
 });
