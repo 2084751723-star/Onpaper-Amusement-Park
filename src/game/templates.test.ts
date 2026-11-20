@@ -45,6 +45,24 @@ describe("validated base templates", () => {
     },
   );
 
+  it("the second template has an eight-step unique route and rejects another route to the same treasure", () => {
+    expect(BASE_TEMPLATES).toHaveLength(2);
+    const second: Puzzle = { ...BASE_TEMPLATES[1], version: "1", seed: "000001" };
+    const solution = [
+      { row: 4, col: 0 }, { row: 3, col: 0 }, { row: 2, col: 0 },
+      { row: 1, col: 0 }, { row: 1, col: 1 }, { row: 1, col: 2 },
+      { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 },
+    ];
+    expect(second.clues).toHaveLength(8);
+    expect(solvePuzzle(second)).toEqual([solution]);
+    expect(validatePath(second, solution)).toEqual({ valid: true });
+    const wrongRoute = [...solution.slice(0, 6), { row: 1, col: 3 }, ...solution.slice(7)];
+    expect(wrongRoute[8]).toEqual(solution[8]);
+    expect(validatePath(second, wrongRoute)).toMatchObject({ valid: false, code: "direction" });
+    const unrestricted = { ...second, clues: second.clues.map(({ symbol }) => ({ symbol })) };
+    expect(solvePuzzle(unrestricted, 10)).toHaveLength(2);
+  });
+
   it("the first template's direction clue resolves otherwise ambiguous full paths", () => {
     const first: Puzzle = { ...BASE_TEMPLATES[0], version: "1", seed: "000000" };
     expect(solvePuzzle(first, 100)).toHaveLength(1);

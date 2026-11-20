@@ -1,4 +1,5 @@
 import { BASE_TEMPLATES } from "./templates";
+import { GEOMETRIES, SYMBOL_PERMUTATIONS, transformTemplate } from "./variants";
 import type { ClueView, Coord, Direction, MapView, PathValidation, Puzzle, PuzzleSession, Role } from "./types";
 
 export function generatePuzzle(session: PuzzleSession): Puzzle {
@@ -6,7 +7,14 @@ export function generatePuzzle(session: PuzzleSession): Puzzle {
   if (!/^[0-9a-fA-F]{6}$/.test(session.seed) || session.seed.length !== 6) {
     throw new Error("题目种子必须是六位十六进制。");
   }
-  return { ...structuredClone(BASE_TEMPLATES[0]), version: "1", seed: session.seed.toUpperCase() };
+  const seed = session.seed.toUpperCase();
+  const selection = Number.parseInt(seed, 16);
+  const template = BASE_TEMPLATES[selection % BASE_TEMPLATES.length];
+  const geometry = GEOMETRIES[Math.floor(selection / BASE_TEMPLATES.length) % GEOMETRIES.length];
+  const permutation = SYMBOL_PERMUTATIONS[
+    Math.floor(selection / (BASE_TEMPLATES.length * GEOMETRIES.length)) % SYMBOL_PERMUTATIONS.length
+  ];
+  return { ...transformTemplate(template, geometry, permutation), version: "1", seed };
 }
 
 export function getRoleView(puzzle: Puzzle, role: "a"): MapView;
