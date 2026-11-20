@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
+import { generatePuzzle, getRoleView } from "./game/engine";
 
 afterEach(cleanup);
 
@@ -453,7 +454,9 @@ describe("甲-1I App：正式引擎接线与角色隔离", () => {
 
     await user.click(screen.getByRole("button", { name: "我是 A 探路员" }));
     expectRoleLink(new URL(window.location.href), "a", "ABCDEF");
-    expect(selectedCells()).toEqual([cell(2, 0)]);
+    // 甲-2 变体引擎按种子选择模板，起点随题号变化，从引擎取期望起点。
+    const altStart = getRoleView(generatePuzzle({ version: "1", seed: "ABCDEF" }), "a").start;
+    expect(selectedCells()).toEqual([cell(altStart.row, altStart.col)]);
     expect(screen.getByRole("status").textContent?.trim()).toBe("");
     expect(screen.queryByText(/正式验题待接入/)).toBeNull();
   });

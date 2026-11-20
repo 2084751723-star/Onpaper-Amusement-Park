@@ -33,6 +33,15 @@ describe("generatePuzzle", () => {
     expect(Object.keys(first).sort()).toEqual(["clues", "grid", "seed", "start", "version"]);
   });
 
+  it("uses both layouts for the first two canonical seeds", () => {
+    const first = generatePuzzle({ version: "1", seed: "000000" });
+    const second = generatePuzzle({ version: "1", seed: "000001" });
+    expect(first.grid).toEqual(BASE_TEMPLATES[0].grid);
+    expect(second.grid).toEqual(BASE_TEMPLATES[1].grid);
+    expect(first.clues).toHaveLength(6);
+    expect(second.clues).toHaveLength(8);
+  });
+
   it("normalizes lowercase hexadecimal seeds without changing the puzzle", () => {
     expect(generatePuzzle({ version: "1", seed: "abcdef" })).toEqual(generatePuzzle(session));
   });

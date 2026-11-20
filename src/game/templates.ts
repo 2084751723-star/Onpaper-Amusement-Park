@@ -17,4 +17,20 @@ export const BASE_TEMPLATES: readonly Omit<Puzzle, "version" | "seed">[] = [
       { symbol: "star" },
     ],
   },
+  {
+    grid: ["LS#UM", "UMSL#", "M#LUS", "SLMUL", "UMLS#"].map((row) =>
+      [...row].map((symbol): Cell => symbol === "#" ? { kind: "obstacle" } : { kind: "symbol", symbol: symbols[symbol] }),
+    ),
+    start: { row: 4, col: 0 },
+    clues: [
+      { symbol: "star" },
+      { symbol: "moon" },
+      { symbol: "mushroom" },
+      { symbol: "moon" },
+      { symbol: "star" },
+      { symbol: "leaf", forbiddenDirection: "east" },
+      { symbol: "mushroom" },
+      { symbol: "star" },
+    ],
+  },
 ];
