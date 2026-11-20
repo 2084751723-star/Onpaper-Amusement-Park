@@ -1,0 +1,2327 @@
+{
+  "passed": true,
+  "pdfCount": 38,
+  "pageCount": 95,
+  "conditions": "Edge CDP; preferCSSPageSize; A4 portrait 100%; headers/footers off; backgrounds off/on; grayscale raster and PDF text bounds",
+  "results": [
+    {
+      "name": "000000-roles.pdf",
+      "bytes": 151944,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000000-answer.pdf",
+      "bytes": 215928,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000000-answer-background.pdf",
+      "bytes": 215995,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000000-roles-again.pdf",
+      "bytes": 151944,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000001-roles.pdf",
+      "bytes": 160025,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000001-answer.pdf",
+      "bytes": 233035,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000002-roles.pdf",
+      "bytes": 152588,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000002-answer.pdf",
+      "bytes": 216728,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000003-roles.pdf",
+      "bytes": 159746,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000003-answer.pdf",
+      "bytes": 233111,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000004-roles.pdf",
+      "bytes": 152016,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000004-answer.pdf",
+      "bytes": 215565,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000005-roles.pdf",
+      "bytes": 159822,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000005-answer.pdf",
+      "bytes": 232866,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000006-roles.pdf",
+      "bytes": 151968,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000006-answer.pdf",
+      "bytes": 215484,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000007-roles.pdf",
+      "bytes": 159561,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000007-answer.pdf",
+      "bytes": 231937,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000008-roles.pdf",
+      "bytes": 152244,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000008-answer.pdf",
+      "bytes": 216087,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000009-roles.pdf",
+      "bytes": 160278,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "000009-answer.pdf",
+      "bytes": 233576,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000A-roles.pdf",
+      "bytes": 152175,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000A-answer.pdf",
+      "bytes": 215926,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000B-roles.pdf",
+      "bytes": 159641,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000B-answer.pdf",
+      "bytes": 232030,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000C-roles.pdf",
+      "bytes": 152171,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000C-answer.pdf",
+      "bytes": 215867,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000D-roles.pdf",
+      "bytes": 159621,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000D-answer.pdf",
+      "bytes": 232172,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            511.0240478515625,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000E-roles.pdf",
+      "bytes": 152511,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000E-answer.pdf",
+      "bytes": 216467,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            491.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            638
+          ],
+          "symbolCount": 6,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000F-roles.pdf",
+      "bytes": 160134,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "00000F-answer.pdf",
+      "bytes": 233678,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "ABCDEF-roles.pdf",
+      "bytes": 160540,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "ABCDEF-answer.pdf",
+      "bytes": 234144,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "ABCDEF-answer-background.pdf",
+      "bytes": 234211,
+      "pageCount": 3,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        },
+        {
+          "role": "answer",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.4541015625,
+            508.3621520996094,
+            650.35546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            844
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        }
+      ]
+    },
+    {
+      "name": "ABCDEF-roles-again.pdf",
+      "bytes": 160540,
+      "pageCount": 2,
+      "pages": [
+        {
+          "role": "a",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.076171875,
+            548.9002075195312,
+            592.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            64,
+            715,
+            769
+          ],
+          "symbolCount": 25,
+          "textIsBlack": true
+        },
+        {
+          "role": "b",
+          "sizePt": [
+            594.9599609375,
+            841.9199829101562
+          ],
+          "textBoundsPt": [
+            45.0,
+            45.885276794433594,
+            549.0,
+            562.60546875
+          ],
+          "inkBoundsPx": [
+            58,
+            63,
+            715,
+            730
+          ],
+          "symbolCount": 8,
+          "textIsBlack": true
+        }
+      ]
+    }
+  ],
+  "sourceBaseCommit": "e137d4ca932ca29a30064fc6712f9f4a56b32535",
+  "sourceSha256": {
+    "src/components/PrintPages.tsx": "52d5ee2df1490f636ef9a5574fc845bee868f45b64791d3bae0aeb7671e9c663",
+    "src/print.css": "db12a6b760c48c6c03fe10b63d8642e9eae72a5981c182b0a7d540ff8288ed5e",
+    "src/components/RoleInteraction.test.tsx": "40201fcc94af62f5d779095242afced0d885ddfe674af6cbef7e4f5acf583a04"
+  },
+  "sampleSha256": {
+    "000000-answer.pdf": "9a3223b939db025edf491fba6b4b43d3643df0564aaa395a73aa9eb1eeccd7a5",
+    "000000-roles.pdf": "51f943cf06e606a71c08d174720dad8e6ff16097d27670d50172a4d68ebd8f9b",
+    "ABCDEF-answer.pdf": "f5e2ba4fca00294413f4d35ceba81614456fed29296a0878e43df0a59170979e",
+    "ABCDEF-roles.pdf": "f430b3697804e3e589e8718e789f7958268d011269abc2ebb81803979f30f524"
+  },
+  "coverage": {
+    "seeds": [
+      "000000",
+      "000001",
+      "000002",
+      "000003",
+      "000004",
+      "000005",
+      "000006",
+      "000007",
+      "000008",
+      "000009",
+      "00000A",
+      "00000B",
+      "00000C",
+      "00000D",
+      "00000E",
+      "00000F",
+      "ABCDEF"
+    ],
+    "backgrounds": [
+      false,
+      true
+    ],
+    "toggle": "2 -> 3 -> 2",
+    "viewports": [
+      320,
+      390,
+      1280
+    ],
+    "unitTests": 721,
+    "typecheck": "passed",
+    "build": "passed"
+  },
+  "verificationMethods": [
+    "Actual Edge Page.printToPDF output parsed with PyMuPDF",
+    "Every PDF page checked for A4 dimensions, role text, symbols, clues, answer coordinates, black text and grayscale ink bounds",
+    "ABCDEF three-page grayscale renders and mobile preview visually inspected",
+    "Native print button and role navigation preserve exact selected path; reentry excludes answer"
+  ],
+  "limitations": [
+    "Physical printer/paper not tested",
+    "Physical mobile devices and remote/public website not tested",
+    "Edge Chromium only; other browsers and custom print scale/margins not certified",
+    "PDF export disables browser headers/footers and uses A4 portrait at scale 1"
+  ]
+}
